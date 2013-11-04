@@ -1,5 +1,5 @@
 type expression = 
-	  INTEGER of int
+	  Integer of int
 
 type  statement =
-	  Print of expr
+	  Print of expression

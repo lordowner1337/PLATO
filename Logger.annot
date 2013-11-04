@@ -1,0 +1,399 @@
+"Logger.ml" 3 13 17 "Logger.ml" 3 13 26
+type(
+  string -> string -> unit
+)
+ident(
+  def logToFile "Logger.ml" 7 149 149 "_none_" 1 0 -1
+)
+"Logger.ml" 3 13 27 "Logger.ml" 3 13 35
+type(
+  string
+)
+ident(
+  def fileName "Logger.ml" 3 13 36 "Logger.ml" 5 85 146
+)
+"Logger.ml" 3 13 36 "Logger.ml" 3 13 45
+type(
+  string
+)
+ident(
+  def logString "Logger.ml" 4 49 50 "Logger.ml" 5 85 146
+)
+"Logger.ml" 4 49 54 "Logger.ml" 4 49 64
+type(
+  out_channel
+)
+ident(
+  def fileHandle "Logger.ml" 5 85 89 "Logger.ml" 5 85 146
+)
+"Logger.ml" 4 49 67 "Logger.ml" 4 49 75
+type(
+  string -> out_channel
+)
+ident(
+  ext_ref Pervasives.open_out
+)
+"Logger.ml" 4 49 76 "Logger.ml" 4 49 84
+type(
+  string
+)
+ident(
+  int_ref fileName "Logger.ml" 3 13 27 "Logger.ml" 3 13 35
+)
+"Logger.ml" 4 49 67 "Logger.ml" 4 49 84
+call(
+  stack
+)
+type(
+  out_channel
+)
+"Logger.ml" 5 85 89 "Logger.ml" 5 85 96
+type(
+  out_channel -> (string -> unit, out_channel, unit) format -> string -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"Logger.ml" 5 85 97 "Logger.ml" 5 85 107
+type(
+  out_channel
+)
+ident(
+  int_ref fileHandle "Logger.ml" 4 49 54 "Logger.ml" 4 49 64
+)
+"Logger.ml" 5 85 108 "Logger.ml" 5 85 114
+type(
+  (string -> unit, out_channel, unit) format
+)
+"Logger.ml" 5 85 115 "Logger.ml" 5 85 124
+type(
+  string
+)
+ident(
+  int_ref logString "Logger.ml" 3 13 36 "Logger.ml" 3 13 45
+)
+"Logger.ml" 5 85 89 "Logger.ml" 5 85 124
+call(
+  stack
+)
+type(
+  unit
+)
+"Logger.ml" 5 85 126 "Logger.ml" 5 85 135
+type(
+  out_channel -> unit
+)
+ident(
+  ext_ref Pervasives.close_out
+)
+"Logger.ml" 5 85 136 "Logger.ml" 5 85 146
+type(
+  out_channel
+)
+ident(
+  int_ref fileHandle "Logger.ml" 4 49 54 "Logger.ml" 4 49 64
+)
+"Logger.ml" 5 85 126 "Logger.ml" 5 85 146
+call(
+  tail
+)
+type(
+  unit
+)
+"Logger.ml" 5 85 89 "Logger.ml" 5 85 146
+type(
+  unit
+)
+"Logger.ml" 4 49 50 "Logger.ml" 5 85 146
+type(
+  unit
+)
+"Logger.ml" 7 149 153 "Logger.ml" 7 149 163
+type(
+  string -> unit
+)
+ident(
+  def logScanner "Logger.ml" 10 213 213 "_none_" 1 0 -1
+)
+"Logger.ml" 7 149 164 "Logger.ml" 7 149 173
+type(
+  string
+)
+ident(
+  def logString "Logger.ml" 8 177 178 "Logger.ml" 8 177 211
+)
+"Logger.ml" 8 177 178 "Logger.ml" 8 177 187
+type(
+  string -> string -> unit
+)
+ident(
+  int_ref logToFile "Logger.ml" 3 13 17 "Logger.ml" 3 13 26
+)
+"Logger.ml" 8 177 188 "Logger.ml" 8 177 201
+type(
+  string
+)
+"Logger.ml" 8 177 202 "Logger.ml" 8 177 211
+type(
+  string
+)
+ident(
+  int_ref logString "Logger.ml" 7 149 164 "Logger.ml" 7 149 173
+)
+"Logger.ml" 8 177 178 "Logger.ml" 8 177 211
+call(
+  tail
+)
+type(
+  unit
+)
+"Logger.ml" 10 213 217 "Logger.ml" 10 213 234
+type(
+  string -> unit
+)
+ident(
+  def logScannerInteger "Logger.ml" 13 303 303 "_none_" 1 0 -1
+)
+"Logger.ml" 10 213 235 "Logger.ml" 10 213 242
+type(
+  string
+)
+ident(
+  def integer "Logger.ml" 11 245 246 "Logger.ml" 11 245 297
+)
+"Logger.ml" 11 245 246 "Logger.ml" 11 245 256
+type(
+  string -> unit
+)
+ident(
+  int_ref logScanner "Logger.ml" 7 149 153 "Logger.ml" 7 149 163
+)
+"Logger.ml" 11 245 258 "Logger.ml" 11 245 271
+type(
+  string -> string list -> string
+)
+ident(
+  ext_ref String.concat
+)
+"Logger.ml" 11 245 272 "Logger.ml" 11 245 275
+type(
+  string
+)
+"Logger.ml" 11 245 277 "Logger.ml" 11 245 286
+type(
+  string
+)
+"Logger.ml" 11 245 288 "Logger.ml" 11 245 295
+type(
+  string
+)
+ident(
+  int_ref integer "Logger.ml" 10 213 235 "Logger.ml" 10 213 242
+)
+"Logger.ml" 11 245 276 "Logger.ml" 11 245 296
+type(
+  string list
+)
+"Logger.ml" 11 245 257 "Logger.ml" 11 245 297
+call(
+  stack
+)
+type(
+  string
+)
+"Logger.ml" 11 245 246 "Logger.ml" 11 245 297
+call(
+  tail
+)
+type(
+  unit
+)
+"Logger.ml" 13 303 307 "Logger.ml" 13 303 322
+type(
+  unit
+)
+ident(
+  def logScannerPrint "Logger.ml" 16 347 347 "_none_" 1 0 -1
+)
+"Logger.ml" 14 325 326 "Logger.ml" 14 325 336
+type(
+  string -> unit
+)
+ident(
+  int_ref logScanner "Logger.ml" 7 149 153 "Logger.ml" 7 149 163
+)
+"Logger.ml" 14 325 337 "Logger.ml" 14 325 344
+type(
+  string
+)
+"Logger.ml" 14 325 326 "Logger.ml" 14 325 344
+call(
+  stack
+)
+type(
+  unit
+)
+"Logger.ml" 16 347 351 "Logger.ml" 16 347 370
+type(
+  unit
+)
+ident(
+  def logScannerSemicolon "Logger.ml" 19 401 401 "_none_" 1 0 -1
+)
+"Logger.ml" 17 373 374 "Logger.ml" 17 373 384
+type(
+  string -> unit
+)
+ident(
+  int_ref logScanner "Logger.ml" 7 149 153 "Logger.ml" 7 149 163
+)
+"Logger.ml" 17 373 385 "Logger.ml" 17 373 396
+type(
+  string
+)
+"Logger.ml" 17 373 374 "Logger.ml" 17 373 396
+call(
+  stack
+)
+type(
+  unit
+)
+"Logger.ml" 19 401 405 "Logger.ml" 19 401 414
+type(
+  string -> unit
+)
+ident(
+  def logParser "Logger.ml" 22 463 463 "_none_" 1 0 -1
+)
+"Logger.ml" 19 401 415 "Logger.ml" 19 401 424
+type(
+  string
+)
+ident(
+  def logString "Logger.ml" 20 428 429 "Logger.ml" 20 428 461
+)
+"Logger.ml" 20 428 429 "Logger.ml" 20 428 438
+type(
+  string -> string -> unit
+)
+ident(
+  int_ref logToFile "Logger.ml" 3 13 17 "Logger.ml" 3 13 26
+)
+"Logger.ml" 20 428 439 "Logger.ml" 20 428 451
+type(
+  string
+)
+"Logger.ml" 20 428 452 "Logger.ml" 20 428 461
+type(
+  string
+)
+ident(
+  int_ref logString "Logger.ml" 19 401 415 "Logger.ml" 19 401 424
+)
+"Logger.ml" 20 428 429 "Logger.ml" 20 428 461
+call(
+  tail
+)
+type(
+  unit
+)
+"Logger.ml" 22 463 467 "Logger.ml" 22 463 483
+type(
+  int -> unit
+)
+ident(
+  def logParserInteger "Logger.ml" 25 564 564 "_none_" 1 0 -1
+)
+"Logger.ml" 22 463 484 "Logger.ml" 22 463 491
+type(
+  int
+)
+ident(
+  def integer "Logger.ml" 23 494 495 "Logger.ml" 23 494 561
+)
+"Logger.ml" 23 494 495 "Logger.ml" 23 494 504
+type(
+  string -> unit
+)
+ident(
+  int_ref logParser "Logger.ml" 19 401 405 "Logger.ml" 19 401 414
+)
+"Logger.ml" 23 494 506 "Logger.ml" 23 494 519
+type(
+  string -> string list -> string
+)
+ident(
+  ext_ref String.concat
+)
+"Logger.ml" 23 494 520 "Logger.ml" 23 494 523
+type(
+  string
+)
+"Logger.ml" 23 494 525 "Logger.ml" 23 494 534
+type(
+  string
+)
+"Logger.ml" 23 494 537 "Logger.ml" 23 494 550
+type(
+  int -> string
+)
+ident(
+  ext_ref Pervasives.string_of_int
+)
+"Logger.ml" 23 494 551 "Logger.ml" 23 494 558
+type(
+  int
+)
+ident(
+  int_ref integer "Logger.ml" 22 463 484 "Logger.ml" 22 463 491
+)
+"Logger.ml" 23 494 536 "Logger.ml" 23 494 559
+call(
+  stack
+)
+type(
+  string
+)
+"Logger.ml" 23 494 524 "Logger.ml" 23 494 560
+type(
+  string list
+)
+"Logger.ml" 23 494 505 "Logger.ml" 23 494 561
+call(
+  stack
+)
+type(
+  string
+)
+"Logger.ml" 23 494 495 "Logger.ml" 23 494 561
+call(
+  tail
+)
+type(
+  unit
+)
+"Logger.ml" 25 564 568 "Logger.ml" 25 564 582
+type(
+  unit
+)
+ident(
+  def logParserPrint "Logger.ml" 26 585 603 "_none_" 1 0 -1
+)
+"Logger.ml" 26 585 586 "Logger.ml" 26 585 595
+type(
+  string -> unit
+)
+ident(
+  int_ref logParser "Logger.ml" 19 401 405 "Logger.ml" 19 401 414
+)
+"Logger.ml" 26 585 596 "Logger.ml" 26 585 603
+type(
+  string
+)
+"Logger.ml" 26 585 586 "Logger.ml" 26 585 603
+call(
+  stack
+)
+type(
+  unit
+)

@@ -1,12 +1,14 @@
+open Printf
+
 let logToFile fileName logString = 
-	let fileHandle = open_out fileHandle
+	let fileHandle = open_out fileName
 	in fprintf fileHandle "%s\n" logString; close_out fileHandle
 	
 let logScanner logString = 
 	logToFile "Scanner.log" logString
 
 let logScannerInteger integer =
-	logScanner (String.concat " " ["INTEGER"; (int_of_string integer)])		
+	logScanner (String.concat " " ["INTEGER"; integer])		
 		
 let logScannerPrint =
 	logScanner "PRINT"
@@ -17,8 +19,8 @@ let logScannerSemicolon =
 let logParser logString = 
 	logToFile "Parser.log" logString
 
-let logScannerParser integer =
-	logParser (String.concat " " ["INTEGER"; (int_of_string integer)])
+let logParserInteger integer =
+	logParser (String.concat " " ["INTEGER"; (string_of_int integer)])
 	
 let logParserPrint =
 	logParser "PRINT"
