@@ -1,5 +1,5 @@
 # 1 "Scanner.mll"
-  open Parser 
+  open Parser open Logger
 # 4 "Scanner.ml"
 let __ocaml_lex_tables = {
   Lexing.lex_base = 

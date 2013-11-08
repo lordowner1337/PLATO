@@ -1,4 +1,4 @@
-{ open Parser }
+{ open Parser open Logger}
 
 rule token = parse
     [' ' '\t' '\r' '\n'] { token lexbuf }

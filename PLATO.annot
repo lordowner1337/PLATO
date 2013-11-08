@@ -20,6 +20,9 @@ ident(
   ext_ref Pervasives.stdin
 )
 "PLATO.ml" 4 18 32 "PLATO.ml" 4 18 57
+call(
+  stack
+)
 type(
   Lexing.lexbuf
 )
@@ -29,4 +32,29 @@ type(
 )
 ident(
   ext_ref Parser.statement
+)
+"PLATO.ml" 5 59 80 "PLATO.ml" 5 59 93
+type(
+  Lexing.lexbuf -> Parser.token
+)
+ident(
+  ext_ref Scanner.token
+)
+"PLATO.ml" 5 59 94 "PLATO.ml" 5 59 100
+type(
+  Lexing.lexbuf
+)
+ident(
+  int_ref lexbuf "PLATO.ml" 4 18 23 "PLATO.ml" 4 18 29
+)
+"PLATO.ml" 5 59 63 "PLATO.ml" 5 59 100
+call(
+  stack
+)
+type(
+  Ast.statement
+)
+"PLATO.ml" 4 18 19 "PLATO.ml" 5 59 100
+type(
+  Ast.statement
 )
