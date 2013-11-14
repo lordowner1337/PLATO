@@ -1,3 +1,13 @@
 .paths
 .project
 .settings
+
+Parser.mli
+Parser.ml
+Scanner.ml
+._*
+*.annot
+*.cmo
+*.cmi
+executable
+
