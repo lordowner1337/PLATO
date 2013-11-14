@@ -9,5 +9,4 @@ Scanner.ml
 *.annot
 *.cmo
 *.cmi
-executable
-
+platoc
