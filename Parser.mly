@@ -1,18 +1,31 @@
 %{ open Ast %}
 %{ open Logger %}
 
-%token PRINT, SEMICOLON, EOF
+%token PRINT, SEMICOLON, OPEN_BRACE, CLOSE_BRACE, MAIN_HEADER, EOF
 %token <int> INTEGER
 
-%start statement
-%type <Ast.statement> statement
+%start program
+%type <Ast.program> program
 
 %%
 
 expression:
-  INTEGER { logParserInteger $1; Integer($1) }
+    INTEGER { Integer($1) }
 	
 statement:
-  PRINT expression SEMICOLON { logParserPrint; Print($2) }
+    PRINT expression SEMICOLON { Print($2) }
+	
+statementList:
+    /* empty */ { [] }
+  | statementList statement { $2::$1 }
+	
+statementBlock: 
+    OPEN_BRACE statementList CLOSE_BRACE { StatementBlock(List.rev $2) }
+	
+mainBlock:
+    MAIN_HEADER statementBlock { MainBlock($2) }
+
+program:
+    mainBlock  { Program($1) }
   
   

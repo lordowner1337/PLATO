@@ -1,26 +1,27 @@
-open Printf
+open Printf;;
+open Ast;;
 
 let logToFile fileName logString = 
 	let fileHandle = open_out_gen [Open_creat; Open_append] 0o777 fileName
 	in fprintf fileHandle "%s\n" logString; close_out fileHandle
-	
-let logScanner logString = 
-	logToFile "Scanner.log" logString
 
-let logScannerInteger integer =
-	logScanner (String.concat " " ["INTEGER"; integer])		
+let logListToAst logStringList = 
+	logToFile "Ast.log" (String.concat " " logStringList)
+	
+let logStringToAst logString = 
+	logListToAst [logString]
+
+let logExpression = function
+	  Integer(integerValue) -> logListToAst ["INTEGER"; string_of_int integerValue]
+
+let logStatement = function
+	  Print(printValue) -> logStringToAst "Print"; logExpression(printValue)
 		
-let logScannerPrint =
-	logScanner "PRINT"
-	
-let logScannerSemicolon =
-	logScanner "SEMICOLON"
-			
-let logParser logString = 
-	logToFile "Parser.log" logString
+let logStatementBlock = function
+	  StatementBlock(statementList) -> logListToAst ["StatementBlock of size"; string_of_int (List.length statementList)]; List.map logStatement statementList
+		
+let logMainBlock = function
+	  MainBlock(statementBlock) -> logStringToAst "MainBlock"; logStatementBlock statementBlock
 
-let logParserInteger integer =
-	logParser (String.concat " " ["INTEGER"; (string_of_int integer)])
-	
-let logParserPrint =
-	logParser "PRINT"
+let logProgram = function
+	  Program(mainBlock) -> logListToAst ["Program of size"; "1"]; logMainBlock mainBlock
