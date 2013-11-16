@@ -4,15 +4,19 @@
 SOURCES = Ast.mli Logger.ml Parser.mly Scanner.mll PLATO.ml
 
 # the name of the resulting executable
-RESULT  = platoc
+RESULT = platoc
+
+# paths to additional libraries
+LIBS = oUnit
+INCDIRS = /usr/local/lib/ocaml/site-lib/oUnit
 
 # generate type information (.annot files)
 ANNOTATE = yes
 
+# additional files to delete
+TRASH = *.log
+
 # make target (see manual) : byte-code, debug-code, native-code, ...
 all: debug-code
-
-# trash files for make clean
-TRASH = *.log
 
 include OCamlMakefile

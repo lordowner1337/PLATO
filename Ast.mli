@@ -1,5 +1,17 @@
+type operator = 
+    Plus 
+	| Minus
+	| Times
+	| Divide
+	| Mod
+	| Raise
+	| And
+	| Or
+
 type expression = 
-	  Integer of int
+	  Boolean of bool
+	| Number of int
+	| Binop of expression * operator * expression
 
 type  statement =
 	  Print of expression

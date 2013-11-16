@@ -11,8 +11,20 @@ let logListToAst logStringList =
 let logStringToAst logString = 
 	logListToAst [logString]
 
-let logExpression = function
-	  Integer(integerValue) -> logListToAst ["INTEGER"; string_of_int integerValue]
+let logOperator = function
+	  Plus -> logStringToAst "Plus"
+	| Minus -> logStringToAst "Minus"
+	| Times -> logStringToAst "Times"
+	| Divide -> logStringToAst "Divide"
+	| Mod -> logStringToAst "Mod"
+	| Raise -> logStringToAst "Raise"
+	| And -> logStringToAst "And"
+	| Or -> logStringToAst "Or"
+
+let rec logExpression = function
+	  Boolean(booleanValue) -> logListToAst ["Boolean"; string_of_bool booleanValue]
+	| Number(integerValue) -> logListToAst ["Number"; string_of_int integerValue]
+	| Binop(expression1, operator, expression2) -> logExpression expression1; logOperator operator; logExpression expression2
 
 let logStatement = function
 	  Print(printValue) -> logStringToAst "Print"; logExpression(printValue)
