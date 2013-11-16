@@ -11,3 +11,5 @@ Scanner.ml
 *.cmo
 *.cmi
 platoc
+
+*.log

@@ -1,0 +1,4 @@
+main() {
+  PRINT -1 + 2 / --3;
+  PRINT NOT TRUE AND FALSE OR NOT NOT TRUE; 
+}

@@ -1,20 +1,35 @@
 type operator = 
-    Plus 
+	  Not
+	| And
+	| Or
+  | Plus 
 	| Minus
 	| Times
 	| Divide
 	| Mod
 	| Raise
-	| And
-	| Or
+	| LessThan
+	| LessThanOrEqual
+	| GreaterThan
+	| GreaterThanOrEqual
+	| Equal
+
+type platoType =
+	  BooleanType
+  | IntegerType
+	| NumberType of string
 
 type expression = 
 	  Boolean of bool
 	| Number of int
-	| Binop of expression * operator * expression
+	| Identifier of string
+	| Unop of operator * expression
+	| Binop of operator * expression * expression
 
 type  statement =
 	  Print of expression
+  | Assignment of string * expression
+	| Declaration of platoType * string * expression	
 		
 type statementList = 
 	  StatementList of statement list

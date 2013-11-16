@@ -1,34 +1,60 @@
-%{ open Ast %}
-%{ open Logger %}
+%{ open Ast open Logger %}
 
-%token PLUS MINUS TIMES DIVIDE PERCENT CARET AND OR PRINT, SEMICOLON, OPEN_BRACE, CLOSE_BRACE, MAIN_HEADER, EOF
+%token BOOLEAN_TYPE INTEGER_TYPE NUMBER_TYPE
+%token NOT NEGATION
+%token LESS_THAN GREATER_THAN EQUAL
+%token PLUS MINUS TIMES DIVIDE PERCENT CARET AND OR 
+%token OVER PRINT 
+%token COLON SEMICOLON OPEN_BRACE CLOSE_BRACE MAIN_HEADER EOF
 %token <bool> BOOLEAN
 %token <int> NUMBER
+%token <string> IDENTIFIER
 
-%left AND OR
+%right ASSIGNMENT
+%left OR
+%left AND
+%left EQUAL
+%left LESS_THAN LESS_THAN_OR_EQUAL GREATER_THAN GREATER_THAN_OR_EQUAL
 %left PLUS MINUS
 %left TIMES DIVIDE PERCENT
-%left CARET
+%left NOT NEGATION
+%right CARET
 
 %start program
 %type <Ast.program> program
 
 %%
   
+platoType:
+    BOOLEAN_TYPE { BooleanType }
+  |	INTEGER_TYPE { IntegerType }
+	| NUMBER_TYPE  { NumberType("INTEGERS") }
+	| NUMBER_TYPE OVER IDENTIFIER { NumberType($3) }
+	
 expression:
     BOOLEAN { Boolean($1) }
 	|	NUMBER { Number($1) }
-	| expression PLUS expression{ Binop($1, Plus, $3) }
-	| expression MINUS expression{ Binop($1, Minus, $3) }
-	| expression TIMES expression{ Binop($1, Times, $3) }
-	| expression DIVIDE expression{ Binop($1, Divide, $3) }
-	| expression PERCENT expression{ Binop($1, Mod, $3) }
-	| expression CARET expression{ Binop($1, Raise, $3) }
-	| expression AND expression{ Binop($1, And, $3) }
-	| expression OR expression{ Binop($1, Or, $3) }
+	| IDENTIFIER { Identifier($1) }
+	| NOT expression { Unop(Not, $2) }
+	| MINUS expression %prec NEGATION	{ Unop(Minus, $2) }
+  | expression OR expression { Binop(Or, $1, $3) }
+	| expression AND expression { Binop(And, $1, $3) }
+	| expression PLUS expression { Binop(Plus, $1, $3) }
+	| expression MINUS expression { Binop(Minus, $1, $3) }
+	| expression TIMES expression { Binop(Times, $1, $3) }
+	| expression DIVIDE expression { Binop(Divide, $1, $3) }
+	| expression PERCENT expression { Binop(Mod, $1, $3) }
+	| expression CARET expression { Binop(Raise, $1, $3) }
+	| expression LESS_THAN expression { Binop(LessThan, $1, $3) }
+	| expression LESS_THAN EQUAL expression %prec LESS_THAN_OR_EQUAL { Binop(LessThanOrEqual, $1, $4) }
+	| expression GREATER_THAN expression { Binop(GreaterThan, $1, $3) }
+	| expression GREATER_THAN EQUAL expression %prec GREATER_THAN_OR_EQUAL { Binop(GreaterThanOrEqual, $1, $4) }
+	| expression EQUAL expression { Binop(Equal, $1, $3) }
 	
 statement:
     PRINT expression SEMICOLON { Print($2) }
+  | IDENTIFIER COLON EQUAL expression SEMICOLON %prec ASSIGNMENT { Assignment($1, $4) }
+	|	platoType IDENTIFIER COLON EQUAL expression SEMICOLON %prec ASSIGNMENT { Declaration($1, $2, $5) }
 	
 statementList:
     /* empty */ { [] }
