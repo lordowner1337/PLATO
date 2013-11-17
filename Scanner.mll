@@ -10,9 +10,9 @@ rule token = parse
 	| "NOT" { NOT }
 	| "OR" { OR }
 	| "AND" { AND }
-	| '0' { NUMBER(0) }
-  | ['1'-'9']['0'-'9']* as number { NUMBER(int_of_string number) }
-	| ['a'-'z' 'A'-'Z']['a'-'z' 'A'-'Z' '0'-'9']* as identifier { IDENTIFIER(identifier) }
+	| "OVER" { OVER }
+	| "PRINT" { PRINT }
+	| "main()" { MAIN_HEADER }
 	| '+' { PLUS }
 	| '-' { MINUS }
 	| '*' { TIMES }
@@ -26,7 +26,7 @@ rule token = parse
   | ';' { SEMICOLON }
 	| '{' { OPEN_BRACE }
 	| '}' { CLOSE_BRACE }
-	| "OVER" { OVER }
-	| "PRINT" { PRINT }
-	| "main()" { MAIN_HEADER }
+	| '0' { NUMBER(0) }
+  | ['1'-'9']['0'-'9']* as number { NUMBER(int_of_string number) }
+	| ['a'-'z' 'A'-'Z']['a'-'z' 'A'-'Z' '0'-'9']* as identifier { IDENTIFIER(identifier) }
   | eof { EOF } 

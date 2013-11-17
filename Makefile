@@ -1,7 +1,7 @@
 # see: http://www.ocaml.info/home/ocaml_sources.html#toc16
 
 # put here the names of your source files (in the right order)
-SOURCES = Ast.mli Logger.ml Parser.mly Scanner.mll PLATO.ml
+SOURCES = Ast.mli Logger.ml Parser.mly Scanner.mll Sast.ml PLATO.ml
 
 # the name of the resulting executable
 RESULT = platoc

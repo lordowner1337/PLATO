@@ -30,9 +30,6 @@ type  statement =
 	  Print of expression
   | Assignment of string * expression
 	| Declaration of platoType * string * expression	
-		
-type statementList = 
-	  StatementList of statement list
 				
 type statementBlock = 
 	  StatementBlock of statement list
