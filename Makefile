@@ -1,7 +1,7 @@
 # see: http://www.ocaml.info/home/ocaml_sources.html#toc16
 
 # put here the names of your source files (in the right order)
-SOURCES = Ast.mli Logger.ml Parser.mly Scanner.mll Sast.ml PLATO.ml
+SOURCES = Ast.mli Sast.mli JavaAst.mli Logger.ml Parser.mly Scanner.mll PLATO.ml
 
 # the name of the resulting executable
 RESULT = platoc
@@ -14,7 +14,7 @@ INCDIRS = /usr/local/lib/ocaml/site-lib/oUnit
 ANNOTATE = yes
 
 # additional files to delete
-TRASH = *.log
+TRASH = *.log, *.java
 
 # make target (see manual) : byte-code, debug-code, native-code, ...
 all: debug-code

@@ -10,7 +10,6 @@
 %token <int> NUMBER
 %token <string> IDENTIFIER
 
-%right ASSIGNMENT
 %left OR
 %left AND
 %left EQUAL
@@ -53,8 +52,8 @@ expression:
 	
 statement:
     PRINT expression SEMICOLON { Print($2) }
-  | IDENTIFIER COLON EQUAL expression SEMICOLON %prec ASSIGNMENT { Assignment($1, $4) }
-	|	platoType IDENTIFIER COLON EQUAL expression SEMICOLON %prec ASSIGNMENT { Declaration($1, $2, $5) }
+  | IDENTIFIER COLON EQUAL expression SEMICOLON { Assignment($1, $4) }
+	|	platoType IDENTIFIER COLON EQUAL expression SEMICOLON { Declaration($1, $2, $5) }
 	
 statementList:
     /* empty */ { [] }
